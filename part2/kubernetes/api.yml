@@ -5,7 +5,7 @@ metadata:
   namespace: howest-api
   labels:
     # Replace this by your own name
-    createdBy: "Nathan-Segers"
+    createdBy: "Rodrigo-Sousa"
   
 spec:
   replicas: 1

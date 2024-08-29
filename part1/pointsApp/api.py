@@ -1,10 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://student:examen@db:5432/points'
+
+db_user = os.environ.get('POSTGRES_USER', 'student')
+db_password = os.environ.get('POSTGRES_PASSWORD', 'examen')
+db_name = os.environ.get('POSTGRES_DB', 'points')
+db_host = os.environ.get('DB_HOST', 'db')
+db_port = os.environ.get('DB_PORT', '5432')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
 db = SQLAlchemy(app)
+
+
 
 class Student(db.Model):
     __tablename__ = 'students'

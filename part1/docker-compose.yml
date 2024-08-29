@@ -1,6 +1,6 @@
 services:
   web:
-    build: 
+    build:
       context: ./pointsAPP
     ports:
       - "5000:5000"
@@ -9,10 +9,11 @@ services:
       - db_network
     depends_on:
       db:
-        condition: service_healthy  
+        condition: service_healthy
     environment:
       - FLASK_APP=api.py
       - FLASK_ENV=development
+      - DATABASE_URL=postgresql://student:examen@db:5432/points
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/healthcheck"]
       interval: 10s
@@ -41,3 +42,5 @@ networks:
 
 volumes:
   db_data:
+
+  # Big Data and AI August Exam - Rodrigo Sousa
