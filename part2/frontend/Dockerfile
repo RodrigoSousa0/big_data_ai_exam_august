@@ -1,4 +1,4 @@
-FROM python:3.10.7-alpine3.16 as build-image
+FROM python:3.12.5-alpine3.20 as build-image
 
 WORKDIR '/app'
 
@@ -13,7 +13,7 @@ RUN pip wheel --wheel-dir=/root/wheels -r requirements.txt
 # Now we can copy the rest of our application
 
 # This is the second build-stage, and will only install the wheels that were necessary...
-FROM python:3.10.7-alpine3.16 as production-image
+FROM python:3.12.5-alpine3.20 as production-image
 
 WORKDIR '/app'
 

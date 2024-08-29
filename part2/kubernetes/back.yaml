@@ -24,6 +24,27 @@ spec:
                 - k3d-k3s-default-agent-1
       containers:
       - name: backend
-        image: rsousa22/big_data_and_ai-24_august_backend:version1
+        image: rsousa24/big_data_and_ai-24_august_backend:version1 
         ports:
-        - containerPort: 80 
+        - containerPort: 80
+        env:
+        - name: NAME
+          value: "Rodrigo"  
+        - name: DATE
+          value: "2024-08-29"  
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: exam-rodrigosousa-august
+spec:
+  selector:
+    app: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30011  # Exposing service on NodePort 30011
+  type: NodePort

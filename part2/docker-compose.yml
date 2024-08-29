@@ -1,13 +1,13 @@
 services:
   backend:
-    image: rsousa22/big_data_and_ai-24_august_backend:version1
+    image: rsousa24/big_data_and_ai-24_august_backend:version1
     build:
       context: ./api
       dockerfile: dockerfile
     ports:
       - 8001:80
   frontend:
-    image: rsousa22/big_data_and_ai-24_august_frontend:version1
+    image: rsousa24/big_data_and_ai-24_august_frontend:version1
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -16,4 +16,4 @@ services:
     environment:
       API_PORT: 80
       API_HOST: backend
-      NAME: "Nathan Segers"
+      NAME: "Rodrigo"
